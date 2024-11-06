@@ -1,10 +1,12 @@
 package com.gg.springmvc;
 
 
+import com.gg.springmvc.Validation.CourseCode;
 import jakarta.validation.constraints.*;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 public class Customer {
+
 
     private String firstName;
 
@@ -17,9 +19,19 @@ public class Customer {
     @Size(min=1,message="is required")
     private String lastName;
 
+    @CourseCode
+    private String courseCode;
 
     @Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "only 5 chars/digits")
     private String postalCode;
+
+    public String getCourseCode() {
+        return courseCode;
+    }
+
+    public void setCourseCode(String courseCode) {
+        this.courseCode = courseCode;
+    }
 
     public String getPostalCode() {
         return postalCode;
